@@ -1,0 +1,33 @@
+<div class="list-group list-group-flush">
+  {{ range where .Site.RegularPages "Section" "posts" }}
+  <div class="card card-list">
+    <div class="card-body">
+      <h5><a href="{{.Permalink}}">{{.Title}}</a></h5>
+      <div class="mb-0 list-blockquote">
+        <p>{{ .Summary }}</p>
+        <footer>
+          <span class="card-text">
+            <small class="text-muted">
+              <i class="bi bi-calendar-fill"></i>
+              <span>
+                {{- .Date.Format (default "2006-01-02" .Site.Params.date_format)
+                -}}
+              </span>
+            </small>
+          </span>
+          {{ with .Params.categories }}
+          <span class="card-text">
+            <small class="text-muted">
+              <i class="bi bi-folder-fill"></i>
+              <span>
+                <a href="{{ "categories" | absURL}}/{{ . | urlize }}">{{ . }}</a>
+              </span>
+            </small>
+          </span>
+          {{end}}
+        </footer>
+      </div>
+    </div>
+  </div>
+  {{ end }}
+</div>

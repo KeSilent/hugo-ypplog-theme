@@ -1,0 +1,16 @@
+<nav
+  id="sidebarMenu"
+  class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+>
+  <div class="sidebar-sticky pt-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      {{- $currentPage := . -}}
+      {{ range .Site.Menus.main -}}
+      <a class="nav-link {{ if $currentPage.IsMenuCurrent "main" . }}active{{ end }}" id="v-pills-home-tab" data-toggle="pill" href="{{ .URL | absLangURL }}" role="tab" aria-controls="v-pills-home" aria-selected="true">{{ .Name }}</a>
+      {{- end }}
+    </div>
+    <ul class="nav flex-column">
+    
+    </ul>
+  </div>
+</nav>
