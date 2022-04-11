@@ -1,30 +1,31 @@
-<nav class="navbar sticky-top shadow navbar-expand-lg navbar-light bg-light">
-  <a class="col-md-3 col-lg-2 mr-0 px-3" href="/">
-    <div class="logo">
-      <img src="/images/logo.svg" class="align-self-center mr-3 title-img" alt="..." />
-      <div class="media-body">
-        {{.Site.Title}}
-      </div>
-    </div>
+<nav class="navbar sticky-top shadow navbar-expand-md navbar-light bg-light">
+  <a class="mr-auto px-3 navbar-header logo" href="/">
+    <img
+        src="/images/logo.svg"
+        class="align-self-center mr-3 title-img"
+        alt="..."
+      />
+      <div class="media-body">{{.Site.Title}}</div>
   </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      {{ range .Site.Menus.main }}
       <li class="nav-item active">
-        <a class="nav-link" href="{{ .URL }}"
-          >{{ .Name }} <span class="sr-only">(current)</span></a
-        >
+        {{ range .Site.Menus.main }}
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ .URL }}">
+          {{ .Name }}
+          <span class="sr-only">(current)</span>
+        </a>
       </li>
       {{end}}
+      </li>
     </ul>
-    <div class="form-inline my-2 my-lg-0">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-    </div>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    </form>
   </div>
 </nav>
